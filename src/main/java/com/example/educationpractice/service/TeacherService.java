@@ -38,10 +38,16 @@ public class TeacherService {
         teacherRepository.deleteById(id);
     }
 
+<<<<<<< HEAD
     public TeacherServiceDto create(TeacherServiceDto teacherServiceDto) {
         TeacherEntity teacherEntity = TeacherServiceMapper.INSTANCE.toTeacherEntity(teacherServiceDto);
         teacherRepository.save(teacherEntity);
         return TeacherServiceMapper.INSTANCE.toTeacherServiceDto(teacherEntity);
+=======
+    public void create(TeacherServiceDto teacherServiceDto) {
+        TeacherEntity teacherEntity = TeacherServiceMapper.INSTANCE.toTeacherEntity(teacherServiceDto);
+        teacherRepository.save(teacherEntity);
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
     }
 
 

@@ -22,14 +22,21 @@ public class StudentController {
     private final StudentControllerMapper studentControllerMapper;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
     @GetMapping
     public CommonResponDto<List<StudentResponseDto>> getStudents(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String surname,
             @RequestParam(required = false) Integer age,
             @RequestParam(required = false) BigDecimal scholarship,
+<<<<<<< HEAD
             @RequestParam(required = false) Integer universityId){
+=======
+            @RequestParam(required = false) Integer universityId) {
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
 
         List<StudentServiceDto> list =
                 studentService.getStudents(name, surname, age, scholarship, universityId);

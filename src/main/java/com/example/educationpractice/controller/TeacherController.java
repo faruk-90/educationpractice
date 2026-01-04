@@ -1,7 +1,10 @@
 package com.example.educationpractice.controller;
 
 import com.example.educationpractice.controller.CommonResponDto;
+<<<<<<< HEAD
 import com.example.educationpractice.controller.dto.request.TeacherRequestDto;
+=======
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
 import com.example.educationpractice.controller.dto.response.StudentResponseDto;
 import com.example.educationpractice.controller.dto.response.TeacherResponseDto;
 import com.example.educationpractice.controller.mapper.StudentControllerMapper;
@@ -53,6 +56,7 @@ public class TeacherController {
                 teacherControllerMapper.toTeacherResponseDtoList(teacherServiceDtoList)
         );
     }
+<<<<<<< HEAD
     @PostMapping
     public CommonResponDto<TeacherResponseDto> insert(
             @RequestBody TeacherRequestDto teacherRequestDto) {
@@ -63,6 +67,8 @@ public class TeacherController {
                 teacherControllerMapper.toTeacherResponseDto(teacherServiceDto)
         );
     }
+=======
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
 
     @GetMapping("/{id}/students")
     public CommonResponDto<List<StudentResponseDto>> getTeacherStudents(
@@ -75,6 +81,7 @@ public class TeacherController {
                 studentControllerMapper.toResponseDtoList(students)
         );
     }
+<<<<<<< HEAD
 
     @PutMapping("{id}")
     public CommonResponDto<TeacherResponseDto> update(
@@ -95,4 +102,6 @@ public class TeacherController {
         return new CommonResponDto<>(new TeacherResponseDto(id),
                 "Teacher deleted successfully", 200);
     }
+=======
+>>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
 }
