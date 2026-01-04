@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Main Menu</title>
+
+    <style>
+        @keyframes colorShift {
+            0%   { background-color: #0d6efd; }
+            10%  { background-color: #476757; }/* primary */
+            25%  { background-color: #13ef88; } /* success */
+            35%  { background-color: #004a27; }
+            50%  { background-color: #ffc107; } /* warning */
+            60%  { background-color: #e4d5a7; }
+            75%  { background-color: #e64352; } /* danger */
+            85%  { background-color: #8e4850; }
+            100% { background-color: #0d6efd; }
+        }
+
+        .animated-btn {
+            color: white;
+            border: none;
+            animation: colorShift 4s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .animated-btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* hər button fərqli vaxtda dəyişsin */
+        .delay-1 { animation-duration: 3s; }
+        .delay-2 { animation-duration: 5s; }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100">
+
+<div class="card shadow p-5 text-center">
+    <h2 class="mb-4">Management System</h2>
+
+    <div class="d-flex justify-content-center gap-3">
+        <a th:href="@{/students}" class="btn animated-btn delay-1">
+            Students
+        </a>
+        <a th:href="@{/teachers}" class="btn animated-btn delay-2">
+            Teachers
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
