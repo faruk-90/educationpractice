@@ -62,13 +62,10 @@
                     <label>University ID</label>
                     <input id="university" type="number" class="form-control">
                 </div>
-<<<<<<< HEAD
                 <div class="mb-2">
                     <label>Teacher ID</label>
                     <input id="teacher" type="number" class="form-control">
                 </div>
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
             </div>
 
             <div class="modal-footer">
@@ -126,10 +123,7 @@
         document.getElementById("age").value = student.age || "";
         document.getElementById("scholarship").value = student.scholarship || "";
         document.getElementById("university").value = student.university?.id || "";
-<<<<<<< HEAD
         document.getElementById("teacher").value = student.teacher?.id || "";
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
         modal.show();
     }
 
@@ -140,10 +134,7 @@
         const age = document.getElementById("age").value;
         const scholarship = document.getElementById("scholarship").value;
         const universityIdValue = document.getElementById("university").value;
-<<<<<<< HEAD
         const teacherId = document.getElementById("teacher").value;
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
 
         if(!name || !surname) { alert("Name and Surname required!"); return; }
 
@@ -152,12 +143,8 @@
             surname,
             age: age ? Number(age) : null,
             scholarship: scholarship ? Number(scholarship) : null,
-<<<<<<< HEAD
             university: universityIdValue ? { id: Number(universityIdValue) }: null,
             teacher: teacherId ? { id: Number(teacherId) } : null
-=======
-            university: universityIdValue ? { id: Number(universityIdValue) }: null
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
         };
 
         fetch(id ? `${API}/${id}` : API, {

@@ -13,12 +13,7 @@ public class StudentSpecification {
             String surname,
             Integer age,
             BigDecimal scholarship,
-<<<<<<< HEAD
             Integer universityId) {
-=======
-            Integer universityId
-    ) {
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
         return new Specification() {
             @Override
             public Predicate toPredicate(Root root, CriteriaQuery query, CriteriaBuilder criteriaBuilder) {
@@ -52,10 +47,7 @@ public class StudentSpecification {
                             criteriaBuilder.equal(universityJoin.get("id"), universityId));
                 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
                 return predicates;
             }
 

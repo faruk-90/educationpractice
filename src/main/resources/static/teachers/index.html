@@ -11,11 +11,7 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between mb-3">
         <h3>Teachers</h3>
-<<<<<<< HEAD
         <button class="btn btn-primary" onclick="openAddModal()">Add Teacher</button>
-=======
-        <button class="btn btn-primary" onclick="openAddModal()">Add Student</button>
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
     </div>
 
     <table class="table table-bordered table-hover bg-white">
@@ -25,11 +21,7 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Age</th>
-<<<<<<< HEAD
             <th>Salary</th>
-=======
-            <th>Scholarship</th>
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
             <th>University ID</th>
             <th>Actions</th>
         </tr>
@@ -56,10 +48,7 @@
                         <th>Surname</th>
                         <th>Age</th>
                         <th>Scholarship</th>
-<<<<<<< HEAD
                         <th>University</th>
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
                     </tr>
                     </thead>
                     <tbody id="teacherStudentsTable"></tbody>
@@ -177,11 +166,7 @@
             name,
             surname,
             age: age ? Number(age) : null,
-<<<<<<< HEAD
             salary: salary ? Number(salary) : null,
-=======
-            scholarship: salary ? Number(salary) : null,
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
             university: universityIdValue ? { id: Number(universityIdValue) }: null
         };
 
@@ -226,10 +211,7 @@
                     <td>${student.surname || ""}</td>
                     <td>${student.age || ""}</td>
                     <td>${student.scholarship || ""}</td>
-<<<<<<< HEAD
                     <td>${student.university ? student.university.name : ""}</td>
-=======
->>>>>>> 62ed5898ea75fde1e615b69652cf52f6536eea42
                 `;
                     table.appendChild(row);
                 });
