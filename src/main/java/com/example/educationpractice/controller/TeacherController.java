@@ -1,6 +1,5 @@
 package com.example.educationpractice.controller;
 
-import com.example.educationpractice.controller.CommonResponDto;
 import com.example.educationpractice.controller.dto.request.TeacherRequestDto;
 import com.example.educationpractice.controller.dto.response.StudentResponseDto;
 import com.example.educationpractice.controller.dto.response.TeacherResponseDto;
@@ -8,7 +7,6 @@ import com.example.educationpractice.controller.mapper.StudentControllerMapper;
 import com.example.educationpractice.controller.mapper.TeacherControllerMapper;
 import com.example.educationpractice.controller.mapper.UniversityControllerMapper;
 import com.example.educationpractice.repository.StudentRepository;
-import com.example.educationpractice.repository.entity.StudentEntity;
 import com.example.educationpractice.service.StudentService;
 import com.example.educationpractice.service.TeacherService;
 import com.example.educationpractice.service.UniversityService;
@@ -36,6 +34,7 @@ public class TeacherController {
     private final StudentService studentService;
     private final StudentControllerMapper studentControllerMapper;
     private  final StudentRepository studentRepository;
+
 
 
     @GetMapping
@@ -69,7 +68,7 @@ public class TeacherController {
             @PathVariable Integer id) {
 
         List<StudentServiceDto> students =
-                studentService.getByTeacherId(id);
+                studentService.getStudentsByTeacher(id);
 
         return new CommonResponDto<>(
                 studentControllerMapper.toResponseDtoList(students)
@@ -95,4 +94,35 @@ public class TeacherController {
         return new CommonResponDto<>(new TeacherResponseDto(id),
                 "Teacher deleted successfully", 200);
     }
+
+//    @GetMapping("/students/{studentId}/teachers")
+//    public CommonResponDto<List<TeacherResponseDto>> getTeachersByStudent(@PathVariable Integer studentId) {
+//        List<TeacherServiceDto> teachers = teacherService.getTeachersByStudent(studentId);
+//        List<TeacherResponseDto> dtoList = teacherControllerMapper.toTeacherResponseDtoList(teachers);
+//        return new CommonResponDto<>(dtoList, "Students fetched", 200);
+//    }
+@DeleteMapping("/{teacherId}/students/{studentId}")
+public CommonResponDto<Void> removeStudentFromTeacher(
+        @PathVariable Integer teacherId,
+        @PathVariable Integer studentId) {
+
+    teacherService.removeStudent(teacherId, studentId);
+
+    return new CommonResponDto<>(
+            null,
+            "Student removed from teacher",
+            200
+    );
+}
+@PostMapping("/{teacherId}/students/{studentId}")
+public CommonResponDto<Void> addStudentToTeacher(
+        @PathVariable Integer teacherId,
+        @PathVariable Integer studentId) {
+    teacherService.addStudent(teacherId, studentId);
+    return new CommonResponDto<>(
+            null,
+            "Student added to teacher",
+            200
+    );
+        }
 }

@@ -10,11 +10,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeacherRequestDto {
+
     private Integer id;
     private String name;
     private String surname;
     private Integer age;
     private BigDecimal salary;
-    private UniversityRequestDto university;
-    private StudentRequestDto student;
+
+    private Integer universityId; // ✔ sadəcə ID
 }

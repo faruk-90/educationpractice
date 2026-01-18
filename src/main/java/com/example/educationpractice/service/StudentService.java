@@ -1,23 +1,30 @@
 package com.example.educationpractice.service;
 
 import com.example.educationpractice.repository.StudentRepository;
+import com.example.educationpractice.repository.TeacherStudentRepository;
 import com.example.educationpractice.repository.entity.StudentEntity;
 import com.example.educationpractice.repository.specification.StudentSpecification;
 import com.example.educationpractice.service.dto.StudentServiceDto;
 import com.example.educationpractice.service.dto.mapper.StudentServiceMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import com.example.educationpractice.repository.entity.TeacherStudentEntity;
+
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final TeacherStudentRepository teacherStudentRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, TeacherStudentRepository teacherStudentRepository) {
         this.studentRepository = studentRepository;
+        this.teacherStudentRepository = teacherStudentRepository;
     }
 
     public List<StudentServiceDto> getStudents(String name,
@@ -64,10 +71,12 @@ public class StudentService {
     }
 
 
-    public List<StudentServiceDto> getByTeacherId(Integer teacherId) {
-        return studentRepository.findByTeacher_Id(teacherId)
-                .stream()
+
+    public List<StudentServiceDto> getStudentsByTeacher(Integer teacherId) {
+        List<StudentEntity> students = studentRepository.findStudentsByTeacherId(teacherId);
+        return students.stream()
                 .map(StudentServiceMapper.INSTANCE::toServiceDto)
-                .toList();
+                .collect(Collectors.toList());
     }
+
 }

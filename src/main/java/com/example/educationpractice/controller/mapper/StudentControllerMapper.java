@@ -10,14 +10,9 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface StudentControllerMapper {
 
-
-
     StudentResponseDto toResponseDto(StudentServiceDto serviceDto);
 
     List<StudentResponseDto> toResponseDtoList(List<StudentServiceDto> serviceDto);
 
-    StudentServiceDto toStudentSercviceDto(StudentRequestDto serviceDto);
-
-    StudentRequestDto toStudentRequestDto(StudentServiceDto studentDto);
-
+    StudentServiceDto toStudentSercviceDto(StudentRequestDto requestDto);
 }

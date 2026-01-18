@@ -63,8 +63,10 @@
                     <input id="university" type="number" class="form-control">
                 </div>
                 <div class="mb-2">
-                    <label>Teacher ID</label>
-                    <input id="teacher" type="number" class="form-control">
+                    <label>Teacher</label>
+                    <select id="teacher" class="form-control">
+                        <option value="">Teachers</option>
+                    </select>
                 </div>
             </div>
 
@@ -168,6 +170,21 @@
         fetch(`${API}/${id}`, { method: "DELETE" })
             .then(() => loadStudents());
     }
+</script>
+<script>
+    fetch("http://localhost:8080/api/teachers")
+            .then(response => response.json())
+        .then(res => {
+            const select = document.getElementById("teacher");
+            select.innerHTML = '<option value="">Teachers</option>';
+
+            res.data.forEach(teacher => {
+                const option = document.createElement("option");
+                option.value = teacher.id;
+                option.text = teacher.name + " " + teacher.surname;
+                select.appendChild(option);
+            });
+        });
 </script>
 
 </body>

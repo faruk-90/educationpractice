@@ -1,5 +1,6 @@
 package com.example.educationpractice.service.dto;
 
+import com.example.educationpractice.service.dto.UniversityServiceDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,14 +8,16 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class TeacherServiceDto {
+
     private Integer id;
     private String name;
     private String surname;
     private Integer age;
     private BigDecimal salary;
     private UniversityServiceDto university;
-    private StudentServiceDto student;
+
+    // əlaqə YOXDUR
 }

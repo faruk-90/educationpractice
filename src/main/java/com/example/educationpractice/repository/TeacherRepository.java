@@ -1,10 +1,16 @@
 package com.example.educationpractice.repository;
 
+import com.example.educationpractice.repository.entity.StudentEntity;
 import com.example.educationpractice.repository.entity.TeacherEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface TeacherRepository extends JpaRepository<TeacherEntity, Integer>, JpaSpecificationExecutor<TeacherEntity> {
-
+    @Query("SELECT t FROM TeacherEntity t JOIN t.students s WHERE s.id = :studentId")
+    List<TeacherEntity> findTeachersByStudentId(@Param("studentId") Integer studentId);
 
 }
