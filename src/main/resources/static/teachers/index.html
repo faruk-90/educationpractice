@@ -159,23 +159,36 @@
     function editTeacher(teacher) {
         document.getElementById("modalTitle").innerText = "Edit Teacher";
         document.getElementById("teacherId").value = teacher.id;
-        document.getElementById("name").value = teacher.name;
-        document.getElementById("surname").value = teacher.surname;
-        document.getElementById("age").value = teacher.age;
-        document.getElementById("salary").value = teacher.salary;
-        document.getElementById("university").value = teacher.university?.id || "";
+        document.getElementById("name").value = teacher.name || "";
+        document.getElementById("surname").value = teacher.surname || "";
+        document.getElementById("age").value = teacher.age || "";
+        document.getElementById("salary").value = teacher.salary || "";
+
+        // BURADA YALNIZ ID
+        document.getElementById("university").value =
+            teacher.university?.id || "";
+
         teacherModal.show();
     }
+
 
     function saveTeacher() {
         const id = document.getElementById("teacherId").value;
 
+        const nameEl = document.getElementById("name");
+        const surnameEl = document.getElementById("surname");
+        const ageEl = document.getElementById("age");
+        const salaryEl = document.getElementById("salary");
+        const universityEl = document.getElementById("university");
+
         const body = {
-            name: name.value,
-            surname: surname.value,
-            age: Number(age.value),
-            salary: Number(salary.value),
-            university: university.value ? { id: Number(university.value) } : null
+            name: nameEl.value.trim(),
+            surname: surnameEl.value.trim(),
+            age: ageEl.value ? Number(ageEl.value) : null,
+            salary: salaryEl.value ? Number(salaryEl.value) : null,
+            university: universityEl.value
+                ? { id: Number(universityEl.value) }
+                : null
         };
 
         fetch(id ? `${TEACHER_API}/${id}` : TEACHER_API, {

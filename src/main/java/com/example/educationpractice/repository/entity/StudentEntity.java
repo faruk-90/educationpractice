@@ -25,7 +25,6 @@ public class StudentEntity {
     private String surname;
     private Integer age;
 
-    @Column(name = "stependiya")
     private BigDecimal scholarship;
 
     @ManyToOne(fetch = FetchType.LAZY)
