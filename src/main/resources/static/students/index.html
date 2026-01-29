@@ -99,7 +99,7 @@
                         <td>${student.surname || ""}</td>
                         <td>${student.age || ""}</td>
                         <td>${student.scholarship || ""}</td>
-                        <td>${student.university ? student.university.id : ""}</td>
+                        <td>${student.university ? student.university.name : ""}</td>
                         <td>
                             <button class="btn btn-sm btn-primary me-2" onclick='editStudent(${JSON.stringify(student)})'>Edit</button>
                             <button class="btn btn-sm btn-danger" onclick="deleteStudent(${student.id})">Delete</button>
@@ -135,7 +135,7 @@
         const surname = document.getElementById("surname").value.trim();
         const age = document.getElementById("age").value;
         const scholarship = document.getElementById("scholarship").value;
-        const universityIdValue = document.getElementById("university").value;
+        const universityId = document.getElementById("university").value;
         const teacherId = document.getElementById("teacher").value;
 
         if(!name || !surname) { alert("Name and Surname required!"); return; }
@@ -145,7 +145,7 @@
             surname,
             age: age ? Number(age) : null,
             scholarship: scholarship ? Number(scholarship) : null,
-            university: universityIdValue ? { id: Number(universityIdValue) }: null,
+            university: universityId ? { id: Number(universityId) }: null,
             teacher: teacherId ? { id: Number(teacherId) } : null
         };
 

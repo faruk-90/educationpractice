@@ -17,5 +17,5 @@ public class StudentRequestDto {
     private Integer age;
     private BigDecimal scholarship;
 
-    private Integer universityId; // ✔ sadəcə ID
+    private UniversityRequestDto university;
 }

@@ -17,5 +17,5 @@ public class TeacherRequestDto {
     private Integer age;
     private BigDecimal salary;
 
-    private Integer universityId; // ✔ sadəcə ID
+    private UniversityRequestDto university;
 }
